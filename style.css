@@ -14,6 +14,55 @@
 
 /* ваши @keyframes здесь */
 
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulsing {
+    to {
+        transform: scale(150%);
+    }
+}
+
+@keyframes moving {
+    25% {
+        transform: translateX(50px) translateY(-10px);
+    }
+    50% {
+        transform: rotate(360deg) translateX(-100px) translateY(20px);
+    }
+    75% {
+        transform: rotate(720deg) translateX(200px) translateY(75px);
+    }
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes n {
+    50% {
+        transform: scale(150%);
+    }
+    75% {
+        transform: translateY(100px);
+    }
+}
 
 /* ===== Базовые статичные стили макета (менять не нужно) ===== */
 body {
@@ -57,15 +106,33 @@ body {
 
 /* ===== БЛОК B. Сюда — подключение animation к карточкам ===== */
 /* .box-2 — Мигание (этап 1)                                   */
+.box-2  {
+    animation: blinking 1s infinite step-end;
+}
 /* .box-3 — Пульсация (этап 2)                                 */
+.box-3 {
+    animation: pulsing 1s ease-in-out infinite alternate;
+}
 /* .box-4 — Движение (этап 3)                                  */
+.box-4 {
+    animation: moving 1s linear infinite alternate;
+}
 /* .box-1 — Плавное появление (этап 4)                         */
-
+.box-1 {
+    animation: appearance 2s ease-out;
+}
 /* ваши правила .box-N { animation: ...; } здесь */
-
+.box-5 {
+    animation: n 2s linear infinite alternate;
+}
 
 /* ===== БЛОК C. Этап 5 — доступность ===== */
 /* Добавьте @media (prefers-reduced-motion: reduce),           */
 /* который отключает анимации у всех карточек                  */
 
 /* ваш медиазапрос здесь */
+@media (prefers-reduced-motion: reduce) {
+    * {
+       animation-play-state: paused; 
+    }
+}
