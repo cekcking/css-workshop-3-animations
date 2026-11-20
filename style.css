@@ -119,7 +119,7 @@ body {
 }
 /* .box-1 — Плавное появление (этап 4)                         */
 .box-1 {
-    animation: appearance 2s ease-out;
+    animation: appearance 2s ease-out infinite alternate;
 }
 /* ваши правила .box-N { animation: ...; } здесь */
 .box-5 {
